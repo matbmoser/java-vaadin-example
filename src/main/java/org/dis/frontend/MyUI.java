@@ -51,7 +51,7 @@ public class MyUI extends UI {
         final TextField name = new TextField();
         name.setCaption("Buscar Nombre: ");
 
-        Button button = new Button("Click Me");
+        Button button = new Button("Buscar", VaadinIcons.SEARCH);
         button.addClickListener(e -> {
             if(!name.isEmpty()) {
                 try {
