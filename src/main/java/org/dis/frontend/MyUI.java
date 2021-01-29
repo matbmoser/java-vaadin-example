@@ -36,7 +36,15 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         List<Persona> personas = new ArrayList<>();
-        LectorJSON.read("Personas.json");
+        try {
+            personas = LectorJSON.read("Personas.json");
+        } catch (PException e) {
+            Notification notif = new Notification("Warning",e.getMessage(),Notification.Type.WARNING_MESSAGE);
+            notif.setDelayMsec(2000);
+            notif.setPosition(Position.TOP_CENTER);
+            notif.setIcon(VaadinIcons.WARNING);
+            notif.show(Page.getCurrent());
+        }
         final VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
         final VerticalLayout mainContainer = new VerticalLayout();
