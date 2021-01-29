@@ -96,7 +96,7 @@ public class MyUI extends UI {
         gridContainer.setSizeFull();
         gridPersonas.setSizeFull();
         TextArea textArea = new TextArea("Tu ip actual es: "+ Identify.userIp());
-        mainContainer.addComponents(name, button);
+        mainContainer.addComponents(name, button, textArea);
         layout.addComponents(gridContainer,mainContainer);
         
         setContent(layout);
