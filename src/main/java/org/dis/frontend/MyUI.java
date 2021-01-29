@@ -2,18 +2,24 @@ package org.dis.frontend;
 
 import javax.servlet.annotation.WebServlet;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.server.GenericFontIcon;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.Position;
 import com.vaadin.ui.*;
 import org.dis.backend.Identify;
+import org.dis.backend.LectorJSON;
 import org.dis.backend.PException;
 import org.dis.backend.Persona;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,20 +36,7 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         List<Persona> personas = new ArrayList<>();
-        Persona p1 = new Persona(25, "Mario Bustos", "Masculino", false);
-        p1.addAficcion("Skate");
-        p1.addAficcion("Surf");
-        Persona p2 = new Persona(45, "Maria Tereza", "Femenino", true);
-        p2.addAficcion("Cocina");
-        p2.addAficcion("Musica");
-        p2.addAficcion("Cine");
-        Persona p3 = new Persona(52, "Daniela Rozana", "Femenino", false);
-        p3.addAficcion("Bailar");
-        Persona p4 = new Persona(83, "Rodrigo Madalosso", "Masculino", true);
-        personas.add(p1);
-        personas.add(p2);
-        personas.add(p3);
-        personas.add(p4);
+        LectorJSON.read("Personas.json");
         final VerticalLayout layout = new VerticalLayout();
         layout.setSizeFull();
         final VerticalLayout mainContainer = new VerticalLayout();
@@ -52,10 +45,11 @@ public class MyUI extends UI {
         name.setCaption("Buscar Nombre: ");
 
         Button button = new Button("Buscar", VaadinIcons.SEARCH);
+        List<Persona> finalPersonas = personas;
         button.addClickListener(e -> {
             if(!name.isEmpty()) {
                 try {
-                    int num = Identify.nombre(name.getValue(), personas);
+                    int num = Identify.nombre(name.getValue(), finalPersonas);
                     if(num != -1){
                         Notification notif = new Notification("<span style='color:green'>Sucess</span>", "¡"+name.getValue() + " es la " + (num+1) + "ª persona de la lista!", Notification.Type.HUMANIZED_MESSAGE);
                         notif.setDelayMsec(10000);

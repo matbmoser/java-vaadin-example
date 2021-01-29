@@ -1,0 +1,48 @@
+[
+  {
+    "edad": 25,
+    "nombre": "Mario Bustos",
+    "sexo": "Masculino",
+    "casado": false,
+    "Aficciones": [
+      "Skate",
+      "Surf"
+    ]
+  },
+  {
+    "edad": 45,
+    "nombre": "Maria Tereza",
+    "sexo": "Femenino",
+    "casado": true,
+    "Aficciones": [
+      "Cocina",
+      "Musica",
+      "Cine"
+    ]
+  },
+  {
+    "edad": 52,
+    "nombre": "Daniela Rozana",
+    "sexo": "Femenino",
+    "casado": false,
+    "Aficciones": [
+      "Bailar"
+    ]
+  },
+  {
+    "edad": 83,
+    "nombre": "Rodrigo Madalosso",
+    "sexo": "Masculino",
+    "casado": true,
+    "Aficciones": []
+  },
+  {
+    "edad": 25,
+    "nombre": "Roberto Mariano",
+    "sexo": "Masculino",
+    "casado": false,
+    "Aficciones": [
+      "PingPong"
+    ]
+  }
+]
