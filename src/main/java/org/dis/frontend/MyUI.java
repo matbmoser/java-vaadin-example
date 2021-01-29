@@ -95,8 +95,9 @@ public class MyUI extends UI {
         gridContainer.addComponent(gridPersonas);
         gridContainer.setSizeFull();
         gridPersonas.setSizeFull();
-        TextArea textArea = new TextArea("Tu ip actual es: "+ Identify.userIp());
-        mainContainer.addComponents(name, button, textArea);
+        Label textArea = new Label("Tu ip actual es: "+ Identify.userIp());
+        Label textArea2 = new Label("Tu ip real actual es: "+ Identify.realuserIp());
+        mainContainer.addComponents(name, button, textArea, textArea2);
         layout.addComponents(gridContainer,mainContainer);
         
         setContent(layout);

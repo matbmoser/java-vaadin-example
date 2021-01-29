@@ -1,6 +1,7 @@
 package org.dis.backend;
 
 import com.vaadin.server.Page;
+import com.vaadin.server.VaadinRequest;
 
 import java.util.List;
 
@@ -25,6 +26,13 @@ public class Identify {
         String IP = "127.0.0.1";
 
         IP = Page.getCurrent().getWebBrowser().getAddress();
+
+        return IP;
+    }
+    public static String realuserIp(){
+        String IP = "127.0.0.1";
+
+        IP = VaadinRequest.getCurrent().getHeader("X-Forwarded-For");
 
         return IP;
     }
