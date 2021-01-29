@@ -25,8 +25,10 @@ public class LectorJSON {
     public static List<Persona> read(String path) throws PException {
         List<Persona> personas;
         try {
-            personas = new Gson().fromJson(new FileReader(path), new TypeToken<List<Persona>>(){}.getType());
-        } catch (FileNotFoundException e) {
+            FileReader fileReader = new FileReader(path);
+            personas = new Gson().fromJson(fileReader, new TypeToken<List<Persona>>(){}.getType());
+            fileReader.close();
+        } catch (Exception e) {
             throw new PException("No ha sido posible leer el fichero!");
         }
         return personas;

@@ -73,16 +73,8 @@ public class Persona {
         Aficciones = aficciones;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "edad=" + edad +
-                ", nombre='" + nombre + '\'' +
-                ", sexo='" + sexo + '\'' +
-                ", casado=" + casado +
-                ", Afficones=" + Aficciones +
-                '}';
-    }
+
+
 
     public Persona() {
         super();
@@ -108,4 +100,14 @@ public class Persona {
         super.finalize();
     }
 
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "edad=" + edad +
+                ", nombre='" + nombre + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", casado=" + casado +
+                ", Aficciones=" + Aficciones +
+                '}';
+    }
 }
